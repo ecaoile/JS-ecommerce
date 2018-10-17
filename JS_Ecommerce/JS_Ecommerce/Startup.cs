@@ -26,7 +26,6 @@ namespace JS_Ecommerce
 
             public void Configure(IApplicationBuilder app)
             {
-
                 app.UseStaticFiles();
                 app.UseMvcWithDefaultRoute();
 

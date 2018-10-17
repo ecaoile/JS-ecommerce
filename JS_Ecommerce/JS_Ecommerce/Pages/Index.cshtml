@@ -7,6 +7,26 @@
 }
 
 <h2>Index</h2>
+@if (Model.Promos != null)
+{
+    <h1>Oh snap, we got a table!</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Promos[0].PromoId)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Promos)
+            {
+                <tr>
+                    <td>@item.PromoId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 <p>
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel pulvinar purus. Nunc lectus ipsum, bibendum volutpat congue sit amet, rhoncus quis ex. Cras a maximus tellus. Praesent id lobortis dui, venenatis commodo diam. Pellentesque bibendum et lacus vel molestie. Mauris velit erat, congue interdum ullamcorper eget, sodales ac nibh. Integer mi lacus, fringilla ut diam ut, luctus malesuada ex. Nam sed commodo massa, sodales posuere augue. Aenean mollis, nisi sit amet venenatis sagittis, mauris eros tincidunt arcu, id lacinia nibh orci eu leo.
