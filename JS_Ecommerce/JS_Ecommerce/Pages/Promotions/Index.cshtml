@@ -1,0 +1,41 @@
+﻿@page
+@model JS_Ecommerce.Pages.Promotions.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<head>
+    <title>Promotions - The Jon Snow Shop</title>
+</head>
+<h2 class="mb-4">Promotions</h2>
+
+@if (Model.Promos != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(model => model.Promos[0].PromoId)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Promos[0].PromotionName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Promos[0].PromotionType)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Promos[0].Start)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Promos[0].End)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Promos)
+            {
+                <tr>
+                    <td scope="row">@item.PromoId</td>
+                    <td>@item.PromotionName</td>
+                    <td>@item.PromotionType</td>
+                    <td>@item.Start</td>
+                    <td>@item.End</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="lead">There aren't any promotions going on at this time. Please check back later.</p>
+}
