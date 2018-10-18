@@ -8,7 +8,10 @@ namespace JS_Ecommerce.Models
 {
     public class Promo
     {
+        [Display(Name = "Order Subtotal")]
         public double OrderSubTotal { get; set; }
+
+        [Display(Name = "Promotion Amount")]
         public double PromoAmt { get; set; }
 
         [Display(Name="ID")]
