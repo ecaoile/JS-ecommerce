@@ -9,17 +9,31 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace JS_Ecommerce
 {
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // Includes support for Razor Pages and controllers.
-            services.AddMvc();
-        }
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.DependencyInjection;
 
-        public void Configure(IApplicationBuilder app)
+    namespace RazorPagesContacts
+    {
+        public class Startup
         {
-            app.UseMvc();
+
+            public void ConfigureServices(IServiceCollection services)
+            {
+                services.AddMvc();
+            }
+            
+
+            public void Configure(IApplicationBuilder app)
+            {
+                app.UseStaticFiles();
+                app.UseMvcWithDefaultRoute();
+
+                app.Run(async (context) =>
+                {
+                    await context.Response.WriteAsync("Oops, something went wrong");
+                });
+            }
         }
     }
 }
