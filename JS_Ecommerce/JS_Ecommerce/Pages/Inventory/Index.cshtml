@@ -1,0 +1,37 @@
+﻿@page
+@model JS_Ecommerce.Pages.Inventory.IndexModel
+@{
+    ViewData["Title"] = "Inventory - The Jon Snow Shop";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    int counter = 0;
+}
+
+<body>
+    <h2 class="text-center mt-3">Our Amazing Products</h2>
+    <div class="container text-center p-4">
+        <div class="row">
+            @foreach (var item in Model.Inventory)
+            {
+                if (counter != 0 && counter % 3 == 0)
+                {
+                    @:</div>
+                    @:<div class="row">
+                }
+                <div class="col-md p-5">
+                    <i class="fas fa-user-circle display-3 m-4"></i>
+                    <p class="lead">@item.Name (@item.ItemId)</p>
+                    <p>@item.Description</p>
+                    @if (item.InStock)
+                    {
+                        <p class="text-success">In Stock</p>
+                    }
+                    else
+                    {
+                        <p class="text-danger">Out of Stock</p>
+                    }
+                </div>
+                counter++;
+            }
+        </div>
+    </div>
+</body>
