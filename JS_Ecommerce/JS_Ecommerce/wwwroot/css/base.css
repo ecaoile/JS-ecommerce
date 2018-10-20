@@ -1,4 +1,4 @@
-﻿main {
+﻿/*main {
     margin: 0 1em;
     padding-top: 5em;
 }
@@ -7,4 +7,30 @@
     main {
         margin: 0 3em;
     }
+}*/
+
+section:first-of-type {
+    padding-top: 5em;
 }
+
+main {
+    min-height:90vh;
+}
+
+footer {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+    color: white;
+    background-color: #004d4d;
+}
+
+.btn-social {
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 1.25rem;
+    line-height: 2rem;
+}
+
+    .btn-social > i {
+        padding-top: .5rem;
+    }

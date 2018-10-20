@@ -4,48 +4,60 @@
     ViewData["title"] = "Promotion Details - The Jon Snow Shop";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
+<head>
+    <link rel="stylesheet" href="~/css/details.css" />
+</head>
 
 <body>
-    <div class="container">
-        <h2>@Model.DetailedPromo.PromoId Details</h2>
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.DetailedPromo.PromotionName)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DetailedPromo.PromotionName)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DetailedPromo.PromotionType)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DetailedPromo.PromotionType)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DetailedPromo.MinimumOrderValue)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DetailedPromo.MinimumOrderValue)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DetailedPromo.OrderSubTotal)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DetailedPromo.OrderSubTotal)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DetailedPromo.Start)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DetailedPromo.Start)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.DetailedPromo.End)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.DetailedPromo.End)
-            </dd>
-        </dl>
-        <a class="btn btn-info" asp-page="/Promotions/Index">Back to Promotions</a>
-    </div>
+    <section class="pb-5">
+        <div class="container-fluid text-center">
+            <h2>@Model.DetailedPromo.PromoId Details</h2>
+            <hr />
+            <dl class="row text-center">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedPromo.PromotionName)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedPromo.PromotionName)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedPromo.PromotionType)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedPromo.PromotionType)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedPromo.PromoAmt)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedPromo.PromoAmt)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedPromo.MinimumOrderValue)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedPromo.MinimumOrderValue)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedPromo.OrderSubTotal)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedPromo.OrderSubTotal)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedPromo.Start)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedPromo.Start)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedPromo.End)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedPromo.End)
+                </dd>
+            </dl>
+            <a class="btn btn-info btn-block" asp-page="/Promotions/Index">Back to Promotions</a>
+        </div>
+    </section>
 </body>
