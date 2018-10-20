@@ -1,17 +1,18 @@
-﻿using JS_Ecommerce.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using JS_Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
 
-namespace JS_Ecommerce.Pages
+namespace JS_Ecommerce.Pages.Shipping
 {
     public class IndexModel : PageModel
     {
-        public List<Item> Inventory { get; set; }
+        public List<ShippingOpt> ShippingOptions { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -23,14 +24,13 @@ namespace JS_Ecommerce.Pages
                     client.BaseAddress = new Uri("http://jst.edchavez.com");
 
                     //the .Result is important for us to extract the result of the response from the call
-                    var promosResponse = client.GetAsync("/api/inventory/getInventory/").Result;
+                    var shippingResponse = client.GetAsync("/api/shipping/").Result;
 
-                    if (promosResponse.EnsureSuccessStatusCode().IsSuccessStatusCode)
+                    if (shippingResponse.EnsureSuccessStatusCode().IsSuccessStatusCode)
                     {
-                        var promosStringResult = await promosResponse.Content.ReadAsStringAsync();
+                        var shippingStringResult = await shippingResponse.Content.ReadAsStringAsync();
 
-                        var inventoryArray = JsonConvert.DeserializeObject<ItemList>(promosStringResult);
-                        Inventory = inventoryArray.Items;
+                        ShippingOptions = JsonConvert.DeserializeObject<List<ShippingOpt>>(shippingStringResult);
                     }
 
                     return Page();

@@ -1,0 +1,60 @@
+﻿@page
+@model JS_Ecommerce.Pages.Shipping.DetailsModel
+@{
+    ViewData["title"] = "Shipping Details - The Jon Snow Shop";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/details.css" />
+</head>
+
+<body>
+    <section class="pb-5">
+        <div class="container-fluid text-center">
+            <h2>@Model.DetailedShipOpt.ShipOptionId Details</h2>
+            <hr />
+            <dl class="row text-center">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedShipOpt.ShipOptionName)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedShipOpt.ShipOptionName)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedShipOpt.ShipCost)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedShipOpt.ShipCost)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.DetailedShipOpt.CarrierName)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.DetailedShipOpt.CarrierName)
+                </dd>
+                @if (Model.DetailedShipOpt.ShipOptionId == "USStandard")
+                {
+                    <dt class="col-sm-6">
+                        External Info
+                    </dt>
+                    <dd class="col-sm-6">
+                        <a href="https://www.fedex.com/en-us/shipping/one-rate.html"
+                           class="btn btn-primary" target="_blank">Click Here for More Info</a>
+                    </dd>
+                }
+
+                @if (Model.DetailedShipOpt.ShipOptionId == "IntlStandard")
+                {
+                    <dt class="col-sm-6">
+                        External Info
+                    </dt>
+                    <dd class="col-sm-6">
+                        <a href="https://www.fedex.com/en-us/shipping/international-services.html"
+                           class="btn btn-primary" target="_blank">Click Here for More Info</a>
+                    </dd>
+                }
+            </dl>
+            <a class="btn btn-info btn-block" asp-page="/shipping/index">Back to Shipping Options</a>
+        </div>
+    </section>
+</body>

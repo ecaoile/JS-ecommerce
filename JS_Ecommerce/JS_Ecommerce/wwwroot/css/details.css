@@ -1,0 +1,7 @@
+﻿/* I could use a Bootstrap class, but this lets me be lazy and apply
+    the property to all elements.
+*/
+dt, dd {
+    margin:1em auto;
+}
+

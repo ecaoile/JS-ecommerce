@@ -1,5 +1,4 @@
-﻿
-<head>
+﻿<head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -8,6 +7,7 @@
           crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/base.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <header>
@@ -26,19 +26,11 @@
                         <a class="nav-link" asp-page="/promotions/index">Promotions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                        <a class="nav-link" asp-page="/shipping/index">Shipping</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-md-0">
-                    <input class="form-control" type="text" placeholder="Search">
+                    <input class="form-control empty" id="search-bar" type="text" placeholder="Search Products">
                 </form>
             </div>
         </nav>
@@ -46,6 +38,47 @@
     <main>
         @RenderBody()
     </main>
+    <footer class="footer text-center page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <p class="lead mb-0">555 Fake Street</p>
+                    <p>Seattle, WA 98109</p>
+                </div>
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Connect with Us</h4>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item align-items-center">
+                            <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#"
+                               target="_blank">
+                                <i class="fab fa-fw fa-facebook-f align-center"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item align-items-center">
+                            <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#"
+                               target="_blank">
+                                <i class="fab fa-fw fa-twitter align-center"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item align-items-center">
+                            <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#"
+                               target="_blank">
+                                <i class="fab fa-instagram align-center"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">About the Jon Snow Shop</h4>
+                    <p>
+                        We use dark magic to siphon life from the man who knows nothing!
+                        He doesn't even know what's happening to him. Tee hee hee!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"

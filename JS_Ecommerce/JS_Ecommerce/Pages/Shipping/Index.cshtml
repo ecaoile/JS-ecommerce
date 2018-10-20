@@ -1,0 +1,44 @@
+﻿@page
+@model JS_Ecommerce.Pages.Shipping.IndexModel
+@{
+    ViewData["Title"] = "Shipping Options - The Jon Snow Shop";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<body>
+    <section class="container pb-5">
+        <h2 class="mb-4 text-center">Shipping Options</h2>
+
+        @if (Model.ShippingOptions != null)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model => model.ShippingOptions[0].ShipOptionId)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.ShippingOptions[0].ShipOptionName)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.ShippingOptions[0].CarrierName)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.ShippingOptions[0].ShipCost)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ShippingOptions)
+                    {
+                        <tr>
+                            <td scope="row"><a asp-page="/Shipping/Details" asp-route-id="@item.ShipOptionId">@item.ShipOptionId</a></td>
+                            <td>@item.ShipOptionName</td>
+                            <td>@item.CarrierName</td>
+                            <td>@item.ShipCost</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="lead">There aren't any shipping options available at this time. Please check back later.</p>
+        }
+
+        <a class="btn btn-info btn-block" asp-page="/index">Return to Main Page</a>
+    </section>
+</body>
