@@ -1,7 +1,7 @@
 ﻿@page
 @model JS_Ecommerce.Pages.IndexModel
 @{
-    ViewData["Title"] = "Inventory - The Jon Snow Shop";
+    ViewData["Title"] = "Welcome - The Jon Snow Shop";
     Layout = "~/Pages/Shared/_Layout.cshtml";
     int counter = 0;
 }
@@ -14,8 +14,10 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-4">
-                    <h2 class="mt-4 align-middle">The Lives of Jon Snow</h2>
-                    <p class="align-middle">Re-live the life of the true king of the north!</p>
+                    <h2 class="mt-4 text-center text-md-left">The Lives of Jon Snow</h2>
+                    <p class="text-center text-md-left">Re-live the life of the
+                    true King of the North with potions containing his essence from 
+                    previous lives!</p>
                 </div>
                 <div class="col-sm-8">
                     <img src="https://fsmedia.imgix.net/38/d2/c8/86/fc43/4d79/85ec/636d053528b2/kit-harington-as-jon-snow-in-game-of-thrones.png"
@@ -35,19 +37,19 @@
                     @:</div>
                     @:<div class="row">
                     }
-                    <div class="col-md p-5">
-                        <i class="fas fa-user-circle display-3 m-4"></i>
-                        <p class="lead">@item.Name (@item.ItemId)</p>
-                        <p>@item.Description</p>
-                        @if (item.InStock)
-                        {
-                            <p class="text-success">In Stock</p>
-                        }
-                        else
-                        {
-                            <p class="text-danger">Out of Stock</p>
-                        }
-                    </div>
+                          <div class="col-md p-5">
+                              <i class="fas fa-user-circle display-3 m-4"></i>
+                              <p class="lead">@item.Name (@item.ItemId)</p>
+                              <p>@item.Description</p>
+                              @if (item.InStock)
+                              {
+                                  <p class="text-success">In Stock</p>
+                              }
+                              else
+                              {
+                                  <p class="text-danger">Out of Stock</p>
+                              }
+                          </div>
                     counter++;
                 }
             </div>

@@ -1,20 +1,17 @@
-﻿/*main {
-    margin: 0 1em;
-    padding-top: 5em;
+﻿h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
 }
 
-@media only screen and (min-width:800px) {
-    main {
-        margin: 0 3em;
-    }
-}*/
+#search-bar {
+    font-family: 'Helvetica', FontAwesome, sans-serif;
+}
 
 section:first-of-type {
     padding-top: 5em;
 }
 
 main {
-    min-height:90vh;
+    min-height: 90vh;
 }
 
 footer {
