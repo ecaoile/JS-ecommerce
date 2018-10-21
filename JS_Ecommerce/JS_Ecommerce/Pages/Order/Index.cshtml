@@ -1,0 +1,37 @@
+﻿@page
+@model JS_Ecommerce.Pages.Order.IndexModel
+@{
+    ViewData["Title"] = "Order Items - The Jon Snow Shop";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<body>
+    <section class="text-center mb-5">
+        <h2>Order Items</h2>
+        <p class="lead">Select the items you would like to purchase!</p>
+    </section>
+    <section id="item-order-list" class="container">
+        @foreach (var item in Model.Inventory)
+        {
+            @if (item.InStock)
+            {
+                <div class="row align-items-center">
+                    <div class="col-md-5 mb-4 mb-md-0">
+                        <a href="#"><img src="https://via.placeholder.com/700x300" class="img-fluid" /></a>
+                    </div>
+                    <div class="col-md-7 text-center text-md-left">
+                        <h3>@item.Name</h3>
+                        <i>@item.Description</i>
+                        <p class="lead">$@item.Price</p>
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" min="0" />
+                        <a class="btn btn-block btn-success mt-4" href="#">Add Item</a>
+                    </div>
+                </div>
+                <hr />
+            }
+        }
+
+        <a href="#" class="btn btn-info btn-block m-4">Proceed to Checkout</a>
+    </section>
+</body>
