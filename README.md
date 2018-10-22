@@ -1,5 +1,5 @@
 # The Jon Snow Shop
-Web application created for RAM Mounting Systems front end assessment.<br/>
+Web application created for RAM Mounts front end assessment.<br/>
 
 [Deployment link on Azure](https://jonsnowstore.azurewebsites.net/)
 
