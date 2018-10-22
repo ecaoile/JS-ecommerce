@@ -30,7 +30,8 @@ The following is required to run the program.
 NOTE: rather than using the popular MVC model, Razor Pages combines the controller 
 and views into one big file contaiing two smaller files. <br />
 
-## References
+## References and Credits
+- [article containing Jon Snow image](https://www.inverse.com/article/30184-jon-snow-azor-ahai-prince-that-was-promised-game-of-thrones)
 - [Bootstrap CDN](https://www.bootstrapcdn.com/)
 - [Bootstrap Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 - [how to change menu item on nav item click](https://stackoverflow.com/questions/41660461/add-active-class-to-section-of-menu)
