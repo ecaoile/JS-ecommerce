@@ -28,11 +28,11 @@ The following is required to run the program.
 *Libraries and Frameworks*: ASP.NET Core (Razor Pages), Bootstrap, jQuery, Font Awesome <br />
 *Type of Application*: Web Application <br /> <br />
 NOTE: rather than using the popular MVC model, Razor Pages combines the controller 
-and views into one big file contaiing two smaller files.
+and views into one big file contaiing two smaller files. <br />
 
 ## References
 - [Bootstrap CDN](https://www.bootstrapcdn.com/)
 - [Bootstrap Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 - [research on how to change menu item on nav item click](https://stackoverflow.com/questions/41660461/add-active-class-to-section-of-menu)
 - [dynamically rendering multiple rows depending on list count](https://www.jerriepelser.com/blog/approaches-when-rendering-list-using-bootstrap-grid-system/)
-- - [research on how to always keep footer at the bottom](https://css-tricks.com/couple-takes-sticky-footer/)
+- [research on how to always keep footer at the bottom](https://css-tricks.com/couple-takes-sticky-footer/)
