@@ -5,6 +5,12 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h2>Error</h2>
-<p>This is the error page!</p>
+<body>
+    <section class="text-center container m-5">
+        <h2>Error</h2>
+        <img src="~/assets/error_x.png" class="img-fluid w-25"/>
+        <p>Oh no! Something went wrong!</p>
+        <a asp-page="/Index" class="btn btn-info">Return to Home Page</a>
+    </section>
+</body>
 

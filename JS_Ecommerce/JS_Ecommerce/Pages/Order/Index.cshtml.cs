@@ -8,12 +8,15 @@ using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace JS_Ecommerce.Pages.Order
+
 {
     public class IndexModel : PageModel
     {
         public List<Item> Inventory { get; set; }
 
-        public OrderPost CustomerOrderPost { get; set; }
+        public SubmittedOrder SubmittedOrder { get; set; }
+
+        public CompletedOrder CompletedOrder { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -21,10 +24,8 @@ namespace JS_Ecommerce.Pages.Order
             {
                 try
                 {
-                    // add the appropriate properties on top of the client base address.
                     client.BaseAddress = new Uri("http://jst.edchavez.com");
 
-                    //the .Result is important for us to extract the result of the response from the call
                     var promosResponse = client.GetAsync("/api/inventory/getInventory/").Result;
 
                     if (promosResponse.EnsureSuccessStatusCode().IsSuccessStatusCode)
@@ -50,7 +51,7 @@ namespace JS_Ecommerce.Pages.Order
             // Note: I am filling filling the OrderPost object with pre-determined data
             // due to time constraints. However, normally one would gather the data from the form
             // to calculate costs.
-            CustomerOrderPost = new OrderPost
+            SubmittedOrder = new SubmittedOrder
             {
                 MerchantId = "sample string 1",
                 OrderItems = new List<OrderItem>
@@ -88,8 +89,9 @@ namespace JS_Ecommerce.Pages.Order
 
                 TaxTotal = 200,
                 ShippingTotal = 300,
+                DiscountTotal = 259,
                 MerchantOrderReference = "Some Reference",
-                OrderDate = DateTime.Now.ToString("dd/MM/yyyy"),
+                OrderDate = (int)Math.Floor((double)DateTime.Now.Ticks / 1000),
                 Signature = "Unused. A digital signature for this object"
             };
 
@@ -97,17 +99,24 @@ namespace JS_Ecommerce.Pages.Order
             {
                 using (var client = new HttpClient())
                 {
-                    // add the appropriate properties on top of the client base address.
                     client.BaseAddress = new Uri("http://jst.edchavez.com");
 
-                    //the .Result is important for us to extract the result of the response from the call
-                    var response = await client.PostAsJsonAsync($"/api/order/", CustomerOrderPost);
-                    return RedirectToAction("/Order/Success", CustomerOrderPost);
+                    var response = await client.PostAsJsonAsync($"/api/order/", SubmittedOrder);
+
+                    if (response.EnsureSuccessStatusCode().IsSuccessStatusCode)
+                    {
+                        var completedOrderStringResult = await response.Content.ReadAsStringAsync();
+                        CompletedOrder = JsonConvert.DeserializeObject<CompletedOrder>(completedOrderStringResult);
+
+                        return RedirectToPage("/Order/Complete", CompletedOrder);
+                    }
+
+                    return Page();
                 }
             }
             catch
             {
-                return RedirectToAction("/Error/Index");
+                return RedirectToPage("/Error");
             }
         }
     }

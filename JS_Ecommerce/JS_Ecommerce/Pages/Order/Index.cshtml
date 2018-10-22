@@ -11,27 +11,28 @@
         <p class="lead">Select the items you would like to purchase!</p>
     </section>
     <section id="item-order-list" class="container">
-        @foreach (var item in Model.Inventory)
-        {
-            @if (item.InStock)
+        <form method="post">
+            @foreach (var item in Model.Inventory)
             {
-                <div class="row align-items-center">
-                    <div class="col-md-5 mb-4 mb-md-0">
-                        <a href="#"><img src="https://via.placeholder.com/700x300" class="img-fluid" /></a>
+                @if (item.InStock)
+                {
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0">
+                            <a href="#"><img src="https://via.placeholder.com/700x300" class="img-fluid" /></a>
+                        </div>
+                        <div class="col-md-7 text-center text-md-left">
+                            <h3>@item.Name</h3>
+                            <i>@item.Description</i>
+                            <p class="lead">$@item.Price</p>
+                            <label>Quantity:</label>
+                            <input type="number" name="quantity" min="0" />
+                            <a class="btn btn-block btn-success mt-4" href="#">Add Item</a>
+                        </div>
                     </div>
-                    <div class="col-md-7 text-center text-md-left">
-                        <h3>@item.Name</h3>
-                        <i>@item.Description</i>
-                        <p class="lead">$@item.Price</p>
-                        <label>Quantity:</label>
-                        <input type="number" name="quantity" min="0" />
-                        <a class="btn btn-block btn-success mt-4" href="#">Add Item</a>
-                    </div>
-                </div>
-                <hr />
+                    <hr />
+                }
             }
-        }
-
-        <a href="#" class="btn btn-info btn-block m-4">Proceed to Checkout</a>
+            <input type="submit" class="btn btn-info btn-block mt-5 mb-5" value="Submit Order" />
+        </form>
     </section>
 </body>
