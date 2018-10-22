@@ -33,6 +33,6 @@ and views into one big file contaiing two smaller files. <br />
 ## References
 - [Bootstrap CDN](https://www.bootstrapcdn.com/)
 - [Bootstrap Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
-- [research on how to change menu item on nav item click](https://stackoverflow.com/questions/41660461/add-active-class-to-section-of-menu)
-- [dynamically rendering multiple rows depending on list count](https://www.jerriepelser.com/blog/approaches-when-rendering-list-using-bootstrap-grid-system/)
-- [research on how to always keep footer at the bottom](https://css-tricks.com/couple-takes-sticky-footer/)
+- [how to change menu item on nav item click](https://stackoverflow.com/questions/41660461/add-active-class-to-section-of-menu)
+- [how to dynamically render multiple rows depending on list count](https://www.jerriepelser.com/blog/approaches-when-rendering-list-using-bootstrap-grid-system/)
+- [how to always keep footer at the bottom](https://css-tricks.com/couple-takes-sticky-footer/)
