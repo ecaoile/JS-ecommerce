@@ -35,3 +35,4 @@ and views into one big file contaiing two smaller files.
 - [Bootstrap Documentation](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 - [research on how to change menu item on nav item click](https://stackoverflow.com/questions/41660461/add-active-class-to-section-of-menu)
 - [dynamically rendering multiple rows depending on list count](https://www.jerriepelser.com/blog/approaches-when-rendering-list-using-bootstrap-grid-system/)
+- - [research on how to always keep footer at the bottom](https://css-tricks.com/couple-takes-sticky-footer/)
