@@ -1,0 +1,88 @@
+﻿@page
+@model JS_Ecommerce.Pages.Order.CompleteModel
+@{
+    ViewData["Title"] = "Complete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<body>
+    <section class="text-center mb-5">
+        <h2>Order Complete</h2>
+        <p>Review your order details below.</p>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Your checkout bag</span>
+                    <span class="badge badge-secondary badge-pill"><i class="fas fa-shopping-bag"></i></span>
+                </h4>
+                <ul class="list-group mb-3">
+                    @{
+                        decimal orderTotal = 0;
+                    }
+                    @foreach (var item in Model.CompletedOrder.SubmittedOrder.OrderItems)
+                    {
+                        var totalItemPrice = item.Price * item.QtyOrdered;
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div class="float-left">
+                                <h6 class="my-0">@item.Name</h6>
+                                <small class="text-muted">Quantity: @item.QtyOrdered</small>
+                            </div>
+                            <span class="text-muted">@totalItemPrice</span>
+                        </li>
+                    }
+                    @{
+                        var submittedOrder = Model.CompletedOrder.SubmittedOrder;
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <h6 class="my-0">Subtotal</h6>
+                            <span>$@submittedOrder.Promotion.OrderSubTotal</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <h6 class="my-0">Shipping</h6>
+                            <span>$@submittedOrder.ShippingTotal</span>
+                        </li>
+                        @if (submittedOrder.DiscountTotal > 0)
+                        {
+                            decimal discountAmt = (submittedOrder.DiscountTotal / 100) * orderTotal;
+                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                <div class="text-success">
+                                    <h6 class="my-0">Promo Type</h6>
+                                    <small>@submittedOrder.Promotion.PromotionName</small>
+                                </div>
+                                <span class="text-success">-$@submittedOrder.DiscountTotal</span>
+                            </li>
+                        }
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (USD)</span>
+                            @{
+                                decimal finalPrice = (decimal)(submittedOrder.Promotion.OrderSubTotal
+                                    + submittedOrder.ShippingTotal - submittedOrder.DiscountTotal);
+                                <strong>$@finalPrice</strong>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="col-md-6 order-md-1">
+                <h4 class="mb-3">Shipping address</h4>
+                <div class="d-inline-block mb-3">
+                    Bob Gunderson<br/>
+                    1234 Not Street<br />
+                    Seattle, WA<br />
+                    98109<br />
+                    United States
+                </div>
+                <hr class="mb-4">
+                <h4 class="mb-3">Shipping method</h4>
+                <div class="d-inline-block">
+                    US Flat Rate
+                </div>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <form asp-page="/index">
+            <button class="btn btn-info btn-block mt-3 mb-5" type="submit">Return to Home</button>
+        </form>
+    </section>
+</body>
